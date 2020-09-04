@@ -21,16 +21,17 @@ $columns: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
   }
 }
 
+@mixin col-media-list($screen, $size) {
+  @each $i in $columns {
+    .col-#{$i} {
+      max-width: $col-size * $i;
+    }
+  }
+}
 @mixin col-x-media-list($screen, $size) {
   @each $i in $columns {
-    @if $screen == $xs {
-      .col-#{$i} {
-        max-width: $col-size * $i;
-      }
-    } @else {
-      .col-#{$screen}-#{$i} {
-        max-width: $col-size * $i;
-      }
+    .col-#{$screen}-#{$i} {
+      max-width: $col-size * $i;
     }
   }
 }
@@ -40,7 +41,7 @@ $columns: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
     @include col-x-list($screen, $size);
 
     @if $screen == $xs {
-      @include col-x-media-list($screen, $size);
+      @include col-media-list($screen, $size);
     } @else {
       @media (min-width: $size) {
         @include col-x-media-list($screen, $size);

@@ -1,17 +1,16 @@
 $d-types: (none, inline, block);
 
 @mixin d-list($screen) {
-  @if $screen == $xs {
-    @each $type in $d-types {
-      .d-#{$type} {
-        display: $type !important;
-      }
+  @each $type in $d-types {
+    .d-#{$type} {
+      display: $type !important;
     }
-  } @else {
-    @each $type in $d-types {
-      .d-#{$screen}-#{$type} {
-        display: $type !important;
-      }
+  }
+}
+@mixin d-media-list($screen) {
+  @each $type in $d-types {
+    .d-#{$screen}-#{$type} {
+      display: $type !important;
     }
   }
 }
@@ -21,7 +20,7 @@ $d-types: (none, inline, block);
     @include d-list($screen);
   } @else {
     @media (min-width: $size) {
-      @include d-list($screen);
+      @include d-media-list($screen);
     }
   }
 }
