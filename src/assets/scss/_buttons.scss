@@ -42,8 +42,9 @@
 .btn-fab {
   @extend .btn;
   min-width: 0;
-  height: 3rem;
+  height: 3.5rem;
   border-radius: 50%;
+  font-size: 20px;
 }
 .btn-fab-accent {
   @extend .btn-fab;
