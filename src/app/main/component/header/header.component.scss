@@ -1,0 +1,60 @@
+@import '../../../../assets/scss/sizes';
+
+.header {
+  box-shadow: 0 2px 4px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.08);
+  z-index: 1010;
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+
+  min-height: 4rem;
+  max-height: 4rem;
+
+  .menu {
+    max-width: 50px;
+
+    i {
+      font-size: 150%;
+    }
+  }
+
+  .logo, .logo img {
+    max-height: inherit;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #989586;
+    flex-grow: 1;
+    margin: 0 1.2rem;
+    max-height: 2.5rem;
+    border-radius: 25px 25px 25px 25px;
+    background-color: #fbfbf8;
+
+    .search-icon i {
+      font-size: 20px;
+    }
+    .search-input, .search-input input {
+      border: none;
+      display: inline-flex;
+      background-color: transparent;
+      font-size: 15px;
+      flex: 1;
+    }
+    .search-input input:focus {
+      outline: none;
+    }
+  }
+
+  .auth {
+    display: inherit;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: map-get($sizes, $md)) {
+  .logo {
+    margin-left: 1rem;
+  }
+}
