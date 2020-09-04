@@ -1,0 +1,69 @@
+@function set-btn-text-color($color) {
+  @if(lightness($color) > 70) {
+    @return $accent;
+  } @else {
+    @return $primary;
+  }
+}
+
+@mixin set-btn-color($color) {
+  background-color: $color;
+  color: set-btn-text-color($color);
+}
+
+.btn {
+  color: #0f7c90;
+  border: 1px solid $accent-1;
+  height: 2.5rem;
+  position: relative;
+  align-items: center;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  min-width: 6rem;
+  padding: 0 1.2rem;
+  justify-content: center;
+  user-select: none;
+  vertical-align: bottom;
+  font-weight: 700;
+  background-color: transparent;
+}
+
+.btn-accent {
+  @extend .btn;
+  @include set-btn-color($accent);
+}
+
+.btn-warn {
+  @extend .btn;
+  @include set-btn-color($warn);
+}
+
+.btn-fab {
+  @extend .btn;
+  min-width: 0;
+  height: 3rem;
+  border-radius: 50%;
+}
+.btn-fab-accent {
+  @extend .btn-fab;
+  @include set-btn-color($accent);
+}
+.btn-fab-warn {
+  @extend .btn-fab;
+  @include set-btn-color($warn);
+}
+
+.btn-min-fab {
+  @extend .btn-fab;
+  height: 2.5rem;
+  width: 1rem;
+}
+.btn-min-fab-accent {
+  @extend .btn-min-fab;
+  @include set-btn-color($accent);
+}
+.btn-min-fab-warn {
+  @extend .btn-min-fab;
+  @include set-btn-color($warn);
+}
