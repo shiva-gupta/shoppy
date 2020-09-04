@@ -1,0 +1,21 @@
+.d-none {
+  display: none !important;
+}
+.d-inline {
+  display: inline !important;
+}
+.d-block {
+  display: block !important;
+}
+
+@each $screen, $size in $sizes {
+  .d-#{$screen}-none {
+    display: none !important;
+  }
+  .d-#{$screen}-inline {
+    display: inline !important;
+  }
+  .d-#{$screen}-block {
+    display: block !important;
+  }
+}
