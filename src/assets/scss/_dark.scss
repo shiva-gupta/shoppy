@@ -1,6 +1,7 @@
 html[data-theme="dark"] {
   background-color: $dark-secondary;
 
+  // header
   .header {
     background-color: $dark;
   }
@@ -9,9 +10,10 @@ html[data-theme="dark"] {
   }
   .sidebar {
     @include set-color($dark);
+  }
 
-    // div {
-    //   border-bottom: 1px solid white;
-    // }
+  // buttons
+  .btn, .btn-fab, .btn-min-fab {
+    color: $primary;
   }
 }
