@@ -1,3 +1,5 @@
+@import '../../../../../assets/scss/sizes';
+
 .search-bar {
   display: flex;
   align-items: center;
@@ -20,5 +22,14 @@
   }
   .search-input input:focus {
     outline: none;
+  }
+
+  @media (max-width: 576px) {
+    // .search-bar {
+    //   margin-left: 0;
+    // }
+    .search-input input {
+      font-size: 8px;
+    }
   }
 }

@@ -1,5 +1,15 @@
+// html {
+//   --bg: #fff;
+// }
+// html[data-theme='dark'] {
+//   --bg: #343a40;
+// }
+
+// $primary: var(--bg);
 $primary: #fff;
 $accent: #0f7c90;
 $warn: #ea5252;
+$dark: #343a40;
+$dark-secondary: darken($dark, 10%);
 
 $accent-1: #2896a9;

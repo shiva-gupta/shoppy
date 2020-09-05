@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './main/component/header/header.component';
 import { SearchComponent } from './main/component/header/search/search.component';
 import { SideBarComponent } from './main/component/header/side-bar/side-bar.component';
+import { ToggleThemeComponent } from './main/component/header/toggle-theme/toggle-theme.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SearchComponent,
-    SideBarComponent
+    SideBarComponent,
+    ToggleThemeComponent
   ],
   imports: [
     BrowserModule,

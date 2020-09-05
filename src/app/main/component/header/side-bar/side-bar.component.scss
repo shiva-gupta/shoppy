@@ -1,5 +1,6 @@
 @import '../../../../../assets/scss/colors';
 @import '../../../../../assets/scss/sizes';
+@import '../../../../../assets/scss/utilities';
 
 .menu {
   max-width: 50px;
@@ -7,20 +8,21 @@
   i {
     font-size: 150%;
     cursor: pointer;
+    // color: $primary;
   }
 }
 
-@function set-text-color($color) {
-  @if(lightness($color) > 70) {
-    @return #000;
-  } @else {
-    @return #fff;
-  }
-}
-@mixin set-color($color) {
-  background-color: $color;
-  color: set-text-color($color);
-}
+// @function set-text-color($color) {
+//   @if(lightness($color) > 70) {
+//     @return #000;
+//   } @else {
+//     @return #fff;
+//   }
+// }
+// @mixin set-color($color) {
+//   background-color: $color;
+//   color: set-text-color($color);
+// }
 
 .sidebar{
   position: fixed;

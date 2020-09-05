@@ -1,0 +1,17 @@
+html[data-theme="dark"] {
+  background-color: $dark-secondary;
+
+  .header {
+    background-color: $dark;
+  }
+  .menu i {
+    color: $primary;
+  }
+  .sidebar {
+    @include set-color($dark);
+
+    // div {
+    //   border-bottom: 1px solid white;
+    // }
+  }
+}
