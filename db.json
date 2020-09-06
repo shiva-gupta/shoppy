@@ -1,0 +1,10 @@
+{
+  "users": [
+    {
+      "email": "shiva@gmail.com",
+      "password": "$2a$10$Y7h9KgRN4FvhpWNBd/nufOcNkC/aDt/qpbRHGJ7vBVt52NtNlSGVW",
+      "name": "shiva gupta",
+      "id": 1
+    }
+  ]
+}
