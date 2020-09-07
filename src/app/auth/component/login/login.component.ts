@@ -46,8 +46,6 @@ export class LoginComponent implements OnInit {
 
         this.toast.success('Login Successful');
         this.store.dispatch(AuthActions.loginAction({user: response}));
-
-        this.router.navigateByUrl('');
       },
       (err: HttpErrorResponse) => {
         this.toast.error(err.error);

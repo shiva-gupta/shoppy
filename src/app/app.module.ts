@@ -15,6 +15,7 @@ import { ToastComponent } from './main/component/toast/toast.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     AuthModule.forRoot(),
     StoreModule.forRoot(reducers, {}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([])
   ],
   providers: [
     {

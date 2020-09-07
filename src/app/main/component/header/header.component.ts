@@ -16,8 +16,7 @@ export class HeaderComponent implements OnInit {
   isLoggedOut$: Observable<boolean>;
 
   constructor(
-    private store: Store<AppState>,
-    private router: Router
+    private store: Store<AppState>
   ) { }
 
   ngOnInit(): void {
@@ -27,7 +26,6 @@ export class HeaderComponent implements OnInit {
 
   logout(): void {
     this.store.dispatch(fromAuth.AuthActions.logoutAction());
-    this.router.navigateByUrl('');
   }
 
 }

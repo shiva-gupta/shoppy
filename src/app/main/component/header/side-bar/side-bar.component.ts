@@ -32,8 +32,6 @@ export class SideBarComponent implements OnInit {
     this.store.dispatch(fromAuth.AuthActions.logoutAction());
 
     this.changeChecked();
-
-    this.router.navigateByUrl('');
   }
 
   changeChecked(): void {
