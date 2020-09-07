@@ -16,4 +16,17 @@ html[data-theme="dark"] {
   .btn, .btn-fab, .btn-min-fab {
     color: $primary;
   }
+
+  // card
+  .card {
+    @include set-color($dark);
+  }
+
+  // form
+  .form {
+    @include set-color($dark);
+  }
+  .form-field-container input {
+    @include set-color($dark);
+  }
 }

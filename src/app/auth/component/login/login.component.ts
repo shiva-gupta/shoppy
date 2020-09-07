@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 import { AuthActions } from '../../store/actions';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,11 @@ import { AuthActions } from '../../store/actions';
 })
 export class LoginComponent implements OnInit {
 
+  form: FormGroup = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email, Validators.minLength(8)]),
+    password: new FormControl('', [Validators.required, Validators.minLength(5)])
+  });
+
   constructor(
     private authService: AuthService,
     private toast: ToastrService,
@@ -22,16 +28,20 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const user: User = {email: 'shiva@gmail.com', password: 'password'};
-    this.authService.login(user).subscribe(
-      (response: AuthResponse) => {
-        this.toast.success('Login Successful');
-        this.store.dispatch(AuthActions.loginAction({authResponse: response}));
-      },
-      (err: HttpErrorResponse) => {
-        this.toast.error(err.error);
-      }
-    );
+  }
+
+  login(): void {
+    console.log('+++++');
+    // const user: User = {email: 'shiva@gmail.com', password: 'password'};
+    // this.authService.login(user).subscribe(
+    //   (response: AuthResponse) => {
+    //     this.toast.success('Login Successful');
+    //     this.store.dispatch(AuthActions.loginAction({authResponse: response}));
+    //   },
+    //   (err: HttpErrorResponse) => {
+    //     this.toast.error(err.error);
+    //   }
+    // );
   }
 
 }

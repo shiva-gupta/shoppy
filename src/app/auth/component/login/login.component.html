@@ -1,1 +1,23 @@
-<p>login works!</p>
+<div class="card c-x mt-5">
+  <div class="card-header">
+    <div class="card-header-title">Login</div>
+  </div>
+  <div class="card-content mt-1">
+    <form class="form" [formGroup]="form">
+      <div class="form-field-container">
+        <span class="form-field-icon fa fa-user"></span>
+        <input type="text" class="form-control" placeholder="Email" formControlName="email">
+      </div>
+
+      <div class="form-field-container">
+        <span class="form-field-icon fa fa-lock"></span>
+        <input type="password" class="form-control" placeholder="Password" formControlName="password">
+      </div>
+    </form>
+  </div>
+  <div class="card-action">
+    <button class="btn-warn w-100" [disabled]="!form.valid" (click)="login()">
+      Login
+    </button>
+  </div>
+</div>

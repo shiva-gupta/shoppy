@@ -27,6 +27,10 @@
   vertical-align: bottom;
   font-weight: 700;
   background-color: transparent;
+
+  &:disabled {
+    opacity: 0.65;
+  }
 }
 
 .btn-accent {

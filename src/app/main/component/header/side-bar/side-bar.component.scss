@@ -32,6 +32,7 @@
   border-right: 1px solid $accent;
   transition: all .5s ease;
   top: 0;
+  z-index: 1;
   @include set-color($primary);
 
   header{
