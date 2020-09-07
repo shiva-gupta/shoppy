@@ -10,6 +10,7 @@ import { SearchComponent } from './main/component/header/search/search.component
 import { SideBarComponent } from './main/component/header/side-bar/side-bar.component';
 import { ToggleThemeComponent } from './main/component/header/toggle-theme/toggle-theme.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ToastComponent } from './main/component/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     HeaderComponent,
     SearchComponent,
     SideBarComponent,
-    ToggleThemeComponent
+    ToggleThemeComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,

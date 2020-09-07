@@ -1,0 +1,14 @@
+<!-- <div class="toast toast--visible">Toast Message</div> -->
+<!-- <div class="toast toast--success toast--visible">Toast Message</div> -->
+<!-- <div class="toast toast--error toast--visible">
+  <i class="fa fa-close"></i>
+  Toast Message
+</div> -->
+<div class="toast toast-success" [ngClass]="{'toast-visible': displaySuccess}">
+  <i class="fa fa-check"></i>
+  <span>{{ message }}</span>
+</div>
+<div class="toast toast-error" [ngClass]="{'toast-visible': displayError}">
+  <i class="fa fa-close"></i>
+  <span>{{ message }}</span>
+</div>
