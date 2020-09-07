@@ -1,3 +1,4 @@
+import { JwtUtil } from './../../service/jwt.util';
 import { AuthState } from './../../store';
 import { ToastrService } from './../../../main/service/shared/toastr.service';
 import { AuthResponse } from './../../store/model/auth.response';
@@ -8,6 +9,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 import { AuthActions } from '../../store/actions';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import * as jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
@@ -17,8 +19,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   form: FormGroup = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email, Validators.minLength(8)]),
-    password: new FormControl('', [Validators.required, Validators.minLength(5)])
+    email: new FormControl('shiva@gmail.com', [Validators.required, Validators.email, Validators.minLength(8)]),
+    password: new FormControl('password', [Validators.required, Validators.minLength(5)])
   });
 
   constructor(
@@ -31,17 +33,22 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    console.log('+++++');
-    // const user: User = {email: 'shiva@gmail.com', password: 'password'};
-    // this.authService.login(user).subscribe(
-    //   (response: AuthResponse) => {
-    //     this.toast.success('Login Successful');
-    //     this.store.dispatch(AuthActions.loginAction({authResponse: response}));
-    //   },
-    //   (err: HttpErrorResponse) => {
-    //     this.toast.error(err.error);
-    //   }
-    // );
+    const user: User = {
+      email: this.form.value.email,
+      password: this.form.value.password
+    };
+
+    this.authService.login(user).subscribe(
+      (response: User) => {
+        response = JwtUtil.getUser(response.accessToken);
+
+        this.toast.success('Login Successful');
+        this.store.dispatch(AuthActions.loginAction({user: response}));
+      },
+      (err: HttpErrorResponse) => {
+        this.toast.error(err.error);
+      }
+    );
   }
 
 }

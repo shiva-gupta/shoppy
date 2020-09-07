@@ -1,8 +1,7 @@
-import { AuthResponse } from './../model/auth.response';
-import { ActionReducerMap } from '@ngrx/store';
+import { User } from './../model/user';
 
 export interface AuthState {
-  authResponse: AuthResponse;
+  user: User;
 }
 
 export * from './auth.reducer';

@@ -16,7 +16,18 @@ export class AuthService {
     private env: EnvService
   ) { }
 
-  login(user: User): Observable<any> {
+  register(user: User): Observable<any> {
+    return this.http.post<User>(
+      `${this.env.apiUrl}/register`,
+      {
+        name: user.name,
+        email: user.email,
+        password: user.password
+      }
+    );
+  }
+
+  login(user: User): Observable<User> {
     return this.http.post<any>(
       `${this.env.apiUrl}/login`,
       {

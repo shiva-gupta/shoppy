@@ -3,7 +3,7 @@ import { createReducer, on } from '@ngrx/store';
 import { AuthActions } from '../actions';
 
 export const initialState: AuthState = {
-  authResponse: undefined
+  user: undefined
 };
 
 export const authReducers = createReducer(
@@ -11,7 +11,7 @@ export const authReducers = createReducer(
 
   on(AuthActions.loginAction, (state, action) => {
     return {
-      authResponse: action.authResponse
+      user: action.user
     };
   }),
 

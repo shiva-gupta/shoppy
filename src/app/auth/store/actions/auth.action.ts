@@ -1,4 +1,4 @@
-import { AuthResponse } from './../model/auth.response';
+import { User } from './../model/user';
 import { createAction, props } from '@ngrx/store';
 
 export enum AuthActionTypes {
@@ -9,7 +9,7 @@ export enum AuthActionTypes {
 
 export const loginAction = createAction(
   AuthActionTypes.LOGIN,
-  props<{authResponse: AuthResponse}>()
+  props<{user: User}>()
 );
 
 export const logoutAction = createAction(
