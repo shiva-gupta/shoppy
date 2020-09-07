@@ -10,6 +10,7 @@ import { Store } from '@ngrx/store';
 import { AuthActions } from '../../store/actions';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import * as jwt_decode from 'jwt-decode';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private toast: ToastrService,
-    private store: Store<AuthState>
+    private store: Store<AuthState>,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -44,6 +46,8 @@ export class LoginComponent implements OnInit {
 
         this.toast.success('Login Successful');
         this.store.dispatch(AuthActions.loginAction({user: response}));
+
+        this.router.navigateByUrl('');
       },
       (err: HttpErrorResponse) => {
         this.toast.error(err.error);

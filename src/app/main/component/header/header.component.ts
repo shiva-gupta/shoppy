@@ -1,7 +1,9 @@
+import { Observable } from 'rxjs';
 import { AppState } from './../../store/reducers/index';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromAuth from '../../../auth/store';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,15 +12,22 @@ import * as fromAuth from '../../../auth/store';
 })
 export class HeaderComponent implements OnInit {
 
+  isLoggedIn$: Observable<boolean>;
+  isLoggedOut$: Observable<boolean>;
+
   constructor(
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.isLoggedIn$ = this.store.select(fromAuth.selectors.isLoggedIn);
+    this.isLoggedOut$ = this.store.select(fromAuth.selectors.isLoggedOut);
   }
 
   logout(): void {
     this.store.dispatch(fromAuth.AuthActions.logoutAction());
+    this.router.navigateByUrl('');
   }
 
 }

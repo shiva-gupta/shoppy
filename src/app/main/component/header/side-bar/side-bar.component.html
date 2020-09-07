@@ -1,9 +1,7 @@
-<input type="checkbox" id="check">
+<input type="checkbox" id="check" [checked]="checked">
 
 <div class="menu ml-1 d-block d-md-none">
-  <label for="check">
-    <i class="fa fa-bars" (click)="handleClick()"></i>
-  </label>
+  <i class="fa fa-bars" (click)="changeChecked()"></i>
 </div>
 
 <label for="check" class="d-block d-md-none">
@@ -13,26 +11,18 @@
   <header>Shoppy</header>
   <div>
     <i class="fa fa-home"></i>
-    <label for="check">
-      <span routerLink="">Home</span>
-    </label>
+    <span routerLink="" (click)="changeChecked()">Home</span>
   </div>
-  <div>
+  <div *ngIf="isLoggedOut$ | async">
     <i class="fa fa-sign-in"></i>
-    <label for="check">
-      <span routerLink="login">Login</span>
-    </label>
+    <span routerLink="login" (click)="changeChecked()">Login</span>
   </div>
-  <div>
+  <div *ngIf="isLoggedOut$ | async">
     <i class="fa fa-user-plus"></i>
-    <label for="check">
-      <span routerLink="register">Sign up</span>
-    </label>
+    <span routerLink="register" (click)="changeChecked()">Sign up</span>
   </div>
-  <div>
+  <div *ngIf="isLoggedIn$ | async">
     <i class="fa fa-sign-out"></i>
-    <label for="check">
-      <span (click)="logout()">Logout</span>
-    </label>
+    <span (click)="logout()">Logout</span>
   </div>
 </div>

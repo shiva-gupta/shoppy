@@ -12,8 +12,14 @@
     <app-toggle-theme></app-toggle-theme>
   </div>
   <div class="auth mr-1 d-none d-md-block">
-    <button class="btn mr-1" routerLink="login">Log In</button>
-    <button class="btn-accent mr-1" routerLink="register">Sign up</button>
-    <button class="btn-warn" (click)="logout()">Logout</button>
+    <button class="btn mr-1" routerLink="login" *ngIf="isLoggedOut$ | async">
+      Log In
+    </button>
+    <button class="btn-accent mr-1" routerLink="register" *ngIf="isLoggedOut$ | async">
+      Sign up
+    </button>
+    <button class="btn-warn" (click)="logout()" *ngIf="isLoggedIn$ | async">
+      Logout
+    </button>
   </div>
 </div>
