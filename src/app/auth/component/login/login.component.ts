@@ -9,7 +9,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 import { AuthActions } from '../../store/actions';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import * as jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
 
 @Component({

@@ -1,4 +1,9 @@
+import { AppState } from './../../../store/reducers/index';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as fromStore from '../../../store';
+import { Observable } from 'rxjs';
+import { isDark } from 'src/app/main/store/selectors/theme.selector';
 
 @Component({
   selector: 'app-toggle-theme',
@@ -7,30 +12,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToggleThemeComponent implements OnInit {
 
-  checked = false;
+  checked = true;
+  checked$: Observable<boolean>;
 
-  constructor() { }
+  constructor(
+    private store: Store<AppState>
+  ) { }
 
   ngOnInit(): void {
+    this.store.select(fromStore.themeSelectors.isDark).subscribe((isDark: boolean) => {
+      this.checked = isDark;
+    });
   }
 
   toggleTheme(): void {
     this.checked = !this.checked;
 
-    if (this.checked) {
-      this.trans();
-      document.documentElement.setAttribute('data-theme', 'dark');
-    } else {
-      this.trans();
-      document.documentElement.setAttribute('data-theme', 'light');
-    }
+    this.store.dispatch(fromStore.ThemeActions.changeThemeAction({dark: this.checked}));
   }
-
-  trans(): void {
-    document.documentElement.classList.add('transition');
-    window.setTimeout(() => {
-      document.documentElement.classList.remove('transition');
-    }, 1000);
-  }
-
 }

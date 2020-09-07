@@ -1,3 +1,4 @@
+import { ThemeEffect } from './main/store/effects/theme.effect';
 import { reducers } from './main/store/reducers/index';
 import { ErrorInterceptor } from './main/service/shared/error.interceptor';
 import { AuthModule } from './auth/auth.module';
@@ -32,7 +33,7 @@ import { EffectsModule } from '@ngrx/effects';
     AuthModule.forRoot(),
     StoreModule.forRoot(reducers, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([ThemeEffect])
   ],
   providers: [
     {

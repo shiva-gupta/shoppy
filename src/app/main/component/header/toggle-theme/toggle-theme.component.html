@@ -1,4 +1,6 @@
 <div class="toggle-container">
-  <input type="checkbox" id="switch" name="theme" (change)="toggleTheme()" />
+  <input type="checkbox" id="switch" name="theme"
+    [checked]="checked" (change)="toggleTheme()"
+     />
   <label for="switch">Toggle</label>
 </div>
