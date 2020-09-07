@@ -12,7 +12,7 @@ import { isDark } from 'src/app/main/store/selectors/theme.selector';
 })
 export class ToggleThemeComponent implements OnInit {
 
-  checked = true;
+  checked = false;
   checked$: Observable<boolean>;
 
   constructor(
