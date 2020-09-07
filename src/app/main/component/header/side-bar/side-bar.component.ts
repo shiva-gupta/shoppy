@@ -1,4 +1,7 @@
+import { AppState } from './../../../store/reducers/index';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as fromAuth from '../../../../auth/store';
 
 @Component({
   selector: 'app-side-bar',
@@ -9,13 +12,19 @@ export class SideBarComponent implements OnInit {
 
   display = false;
 
-  constructor() { }
+  constructor(
+    private store: Store<AppState>
+  ) { }
 
   ngOnInit(): void {
   }
 
   handleClick(): void {
     this.display = !this.display;
+  }
+
+  logout(): void {
+    this.store.dispatch(fromAuth.AuthActions.logoutAction());
   }
 
 }

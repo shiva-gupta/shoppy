@@ -1,4 +1,7 @@
+import { AppState } from './../../store/reducers/index';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as fromAuth from '../../../auth/store';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private store: Store<AppState>
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  logout(): void {
+    this.store.dispatch(fromAuth.AuthActions.logoutAction());
   }
 
 }

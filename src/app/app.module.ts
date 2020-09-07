@@ -1,3 +1,4 @@
+import { reducers } from './main/store/reducers/index';
 import { ErrorInterceptor } from './main/service/shared/error.interceptor';
 import { AuthModule } from './auth/auth.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,6 +12,9 @@ import { SideBarComponent } from './main/component/header/side-bar/side-bar.comp
 import { ToggleThemeComponent } from './main/component/header/toggle-theme/toggle-theme.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastComponent } from './main/component/toast/toast.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,9 @@ import { ToastComponent } from './main/component/toast/toast.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthModule.forRoot()
+    AuthModule.forRoot(),
+    StoreModule.forRoot(reducers, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [
     {
