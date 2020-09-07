@@ -18,15 +18,13 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const user: User = {email: 'shiva@gmail.com', password: 'passwor'};
+    const user: User = {email: 'shiva@gmail.com', password: 'password'};
     this.authService.login(user).subscribe(
       (res: AuthResponse) => {
         this.toast.success('Login Successful');
-        console.log(res);
       },
       (err: HttpErrorResponse) => {
         this.toast.error('Login Failed');
-        console.log(err.error);
       }
     );
   }
