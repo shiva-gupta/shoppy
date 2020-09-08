@@ -2,7 +2,7 @@ import { isDark } from './main/store/selectors/theme.selector';
 import { Constant } from './main/service/utils/constant';
 import { AppState } from './main/store/reducers/index';
 import { EnvService } from './main/service/env/env.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import * as fromAuth from './auth/store';
