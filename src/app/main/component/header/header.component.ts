@@ -3,7 +3,6 @@ import { AppState } from './../../store/reducers/index';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromAuth from '../../../auth/store';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',

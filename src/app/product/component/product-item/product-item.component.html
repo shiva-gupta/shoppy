@@ -1,0 +1,21 @@
+<div class="card m-1">
+  <div class="card-header">
+    <div class="card-header-title">{{ product.title }}</div>
+  </div>
+  <img
+    [src]="product.images[0]"
+    [alt]="product.title">
+  <div class="card-content mt-1">
+    {{ product.description }}
+  </div>
+  <div class="card-action" *ngIf="isLoggedIn$ | async">
+    <div class="c-x">
+      <button class="btn-min-fab-accent mr-1">
+        <i class="fa fa-pencil"></i>
+      </button>
+      <button class="btn-min-fab-warn">
+        <i class="fa fa-trash"></i>
+      </button>
+    </div>
+  </div>
+</div>

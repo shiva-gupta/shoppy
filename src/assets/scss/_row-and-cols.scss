@@ -24,14 +24,14 @@ $columns: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
 @mixin col-media-list($screen, $size) {
   @each $i in $columns {
     .col-#{$i} {
-      max-width: $col-size * $i;
+      max-width: #{$col-size * $i + '%'};
     }
   }
 }
 @mixin col-x-media-list($screen, $size) {
   @each $i in $columns {
     .col-#{$screen}-#{$i} {
-      max-width: $col-size * $i;
+      max-width: #{$col-size * $i + '%'};
     }
   }
 }
@@ -57,4 +57,5 @@ $columns: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  width: 100%;
 }

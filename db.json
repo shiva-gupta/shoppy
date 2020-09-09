@@ -30,6 +30,17 @@
       ],
       "categoryId": 1,
       "id": 1
+    },
+    {
+      "title": "One Plus 7",
+      "description": "8 GB Ram, 128 GB Rom",
+      "images": [
+        "https://ksassets.timeincuk.net/wp/uploads/sites/54/2019/05/OnePlus-7-Pro-2.jpg"
+      ],
+      "category": {
+        "id": 1
+      },
+      "id": 2
     }
   ]
 }
