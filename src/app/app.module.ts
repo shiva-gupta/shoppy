@@ -1,3 +1,4 @@
+import { ProductModule } from './product/product.module';
 import { themeReducers } from './main/store/reducers/theme.reducer';
 import { ThemeEffect } from './main/store/effects/theme.effect';
 import { reducers } from './main/store/reducers/index';
@@ -32,6 +33,7 @@ import { EffectsModule } from '@ngrx/effects';
     BrowserModule,
     AppRoutingModule,
     AuthModule.forRoot(),
+    ProductModule.forRoot(),
     StoreModule.forRoot(reducers, {}),
     StoreModule.forFeature('theme', themeReducers),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),

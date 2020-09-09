@@ -1,3 +1,4 @@
+import { ProductComponent } from './product/component/product/product.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './auth/component/login/login.component';
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: '',
+    component: ProductComponent
   }
 ];
 

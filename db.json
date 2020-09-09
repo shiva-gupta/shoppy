@@ -6,5 +6,30 @@
       "name": "shiva",
       "id": 1
     }
+  ],
+  "category": [
+    {
+      "category": "Mobile",
+      "id": 1
+    },
+    {
+      "category": "Laptop",
+      "id": 2
+    },
+    {
+      "category": "Mobile Accessories",
+      "id": 3
+    }
+  ],
+  "products": [
+    {
+      "title": "Redmi Note 8 Pro",
+      "description": "8 GB Ram, 64 GB Rom",
+      "images": [
+        "https://c.ndtvimg.com/2019-10/78hek2jg_gadget-360_640x480_22_October_19.jpg?downsize=600:450"
+      ],
+      "categoryId": 1,
+      "id": 1
+    }
   ]
 }
