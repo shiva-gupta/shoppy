@@ -11,13 +11,14 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductComponent } from './component/product/product.component';
 import { ProductItemComponent } from './component/product-item/product-item.component';
+import { ProductAddComponent } from './component/product-add/product-add.component';
 
 export const router: Routes = [
   {path: '', component: ProductComponent}
 ];
 
 @NgModule({
-  declarations: [ProductComponent, ProductItemComponent],
+  declarations: [ProductComponent, ProductItemComponent, ProductAddComponent],
   imports: [
     CommonModule,
     HttpClientModule,
