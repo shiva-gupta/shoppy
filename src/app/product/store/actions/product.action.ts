@@ -1,5 +1,6 @@
 import { Product } from './../model/product';
 import { createAction, props } from '@ngrx/store';
+import { HttpErrorResponse } from '@angular/common/http';
 
 export enum ProductActionTypes {
   LOAD_ALL = '[Product] Load All',
@@ -8,8 +9,7 @@ export enum ProductActionTypes {
 }
 
 export const loadAllAction = createAction(
-  ProductActionTypes.LOAD_ALL,
-  props<{}>()
+  ProductActionTypes.LOAD_ALL
 );
 
 export const loadAllSuccessAction = createAction(
@@ -19,5 +19,5 @@ export const loadAllSuccessAction = createAction(
 
 export const loadAllFailAction = createAction(
   ProductActionTypes.LOAD_ALL_FAIL,
-  props<{error: any}>()
+  props<{error: HttpErrorResponse}>()
 );

@@ -5,7 +5,10 @@ import { ProductActions } from '../actions';
 
 export const productAdapter = createEntityAdapter<Product>();
 
-export const intitialProductState = productAdapter.getInitialState();
+export const intitialProductState = productAdapter.getInitialState({
+  loaded: false,
+  loading: false
+});
 
 export const productReducers = createReducer(
   intitialProductState,

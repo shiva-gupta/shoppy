@@ -1,8 +1,10 @@
+import { ProductActionTypes } from './../actions/product.action';
 import { ProductService } from './../../service/product.service';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
-import { concatMap, map } from 'rxjs/operators';
+import { concatMap, map, catchError } from 'rxjs/operators';
 import { ProductActions } from '../actions';
 import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
 
 @Injectable()
 export class ProductEffect {
@@ -14,7 +16,8 @@ export class ProductEffect {
         concatMap(action => this.productService.findAll()),
         map(products => {
           return ProductActions.loadAllSuccessAction({products});
-        })
+        }),
+        catchError(error => of(ProductActions.loadAllFailAction({error})))
       );
   });
 
