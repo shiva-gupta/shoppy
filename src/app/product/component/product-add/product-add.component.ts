@@ -11,6 +11,7 @@ import * as fromAuth from '../../../auth/store';
 })
 export class ProductAddComponent implements OnInit {
 
+  display = true;
   isLoggedIn$: Observable<boolean>;
 
   constructor(
@@ -19,6 +20,10 @@ export class ProductAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoggedIn$ = this.store.select(fromAuth.selectors.isLoggedIn);
+  }
+
+  handleModal(): void {
+    this.display = !this.display;
   }
 
 }

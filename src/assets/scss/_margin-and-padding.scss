@@ -1,4 +1,4 @@
-$space-amounts: (1, 2, 3, 4, 5);
+$space-amounts: (0, 1, 2, 3, 4, 5);
 
 @each $space in $space-amounts {
   .m-#{$space} {

@@ -29,4 +29,12 @@ html[data-theme="dark"] {
   .form-field-container input {
     @include set-color($dark);
   }
+  .form-field-container select {
+    @include set-color($dark);
+  }
+
+  // modal
+  .modal-content {
+    @include set-color($dark);
+  }
 }
