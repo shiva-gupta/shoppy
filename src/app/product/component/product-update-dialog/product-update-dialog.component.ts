@@ -42,11 +42,11 @@ export class ProductUpdateDialogComponent implements OnInit {
       id: this.product.id,
       title: this.form.value.title,
       description: this.form.value.description,
-      images: this.form.value.images,
+      images: [this.form.value.images],
       categoryId: Number(this.categoryId)
     };
 
-    console.log(pro);
+    this.store.dispatch(fromStore.ProductActions.updateAction({product: pro}));
   }
 
 }

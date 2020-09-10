@@ -31,6 +31,16 @@ export class ProductEffect {
       );
   });
 
+  update$ = createEffect(() => {
+    return this.actions$
+      .pipe(
+        ofType(ProductActions.updateAction),
+        concatMap(action => this.productService.update(action.product)),
+        map(product => ProductActions.updateSuccessAction({product})),
+        catchError(error => of(ProductActions.updateFailAction({error})))
+      );
+  });
+
   delete$ = createEffect(() => {
     let id = 0;
     return this.actions$

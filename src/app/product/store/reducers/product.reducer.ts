@@ -1,6 +1,6 @@
 import { Product } from './../model/product';
 import { createReducer, on } from '@ngrx/store';
-import { createEntityAdapter } from '@ngrx/entity';
+import { createEntityAdapter, Update } from '@ngrx/entity';
 import { ProductActions } from '../actions';
 
 export const productAdapter = createEntityAdapter<Product>();
@@ -46,6 +46,33 @@ export const productReducers = createReducer(
   ),
   on(
     ProductActions.saveFailAction,
+    (state, action) => state
+  ),
+
+  on(
+    ProductActions.updateAction,
+    (state, action) => state
+  ),
+  on(
+    ProductActions.updateSuccessAction,
+    (state, action) => {
+      const entities = {};
+      Object.keys(state.entities).forEach(key => {
+        if (Number(key) === action.product.id) {
+          entities[key] = action.product;
+        } else {
+          entities[key] = state.entities[key];
+        }
+      });
+
+      return {
+        ...state,
+        entities
+      };
+    }
+  ),
+  on(
+    ProductActions.updateFailAction,
     (state, action) => state
   ),
 

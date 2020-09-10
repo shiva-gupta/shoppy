@@ -38,6 +38,19 @@ export class ProductService {
     );
   }
 
+  update(product: Product): Observable<Product> {
+    return this.http.put<Product>(
+      `${this.env.apiUrl}/products/${product.id}`,
+      {
+        id: product.id,
+        title: product.title,
+        description: product.description,
+        images: product.images,
+        categoryId: product.categoryId
+      }
+    );
+  }
+
   deleteById(id: number): Observable<any> {
     return this.http.delete<any>(
       `${this.env.apiUrl}/products/${id}`
