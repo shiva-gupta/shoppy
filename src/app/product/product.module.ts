@@ -15,13 +15,14 @@ import { ProductComponent } from './component/product/product.component';
 import { ProductItemComponent } from './component/product-item/product-item.component';
 import { ProductAddComponent } from './component/product-add/product-add.component';
 import { ProductAddDialogComponent } from './component/product-add-dialog/product-add-dialog.component';
+import { ProductUpdateDialogComponent } from './component/product-update-dialog/product-update-dialog.component';
 
 export const router: Routes = [
   {path: '', component: ProductComponent}
 ];
 
 @NgModule({
-  declarations: [ProductComponent, ProductItemComponent, ProductAddComponent, ProductAddDialogComponent],
+  declarations: [ProductComponent, ProductItemComponent, ProductAddComponent, ProductAddDialogComponent, ProductUpdateDialogComponent],
   imports: [
     CommonModule,
     HttpClientModule,

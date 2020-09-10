@@ -5,6 +5,12 @@
       "password": "$2a$10$AtzQoe7bi6GP.yBWTvtVqegUcEh74a0WEZV5PT3OT3Du2CIBc7xfa",
       "name": "shiva",
       "id": 1
+    },
+    {
+      "email": "shivagupta529@gmail.com",
+      "password": "$2a$10$YbuKi6gbl1U1fNMtCMLvpeeeQW/q/twvw2B375.D.dxrp6M52yNoq",
+      "name": "Shiva Gupta",
+      "id": 2
     }
   ],
   "category": [
@@ -43,22 +49,13 @@
       "id": 2
     },
     {
-      "title": "Samsung Galaxy M21",
-      "description": "4 GB Ram, 64 GB Rom",
-      "images": [
-        "https://static.toiimg.com/thumb/msid-71259370,width-1200,resizemode-4/71259370.jpg"
-      ],
-      "categoryId": 1,
-      "id": 3
-    },
-    {
       "title": "Apple iPhone 11 Pro",
       "description": "4 GB Ram, 512 GB Rom",
       "images": [
         "https://www.gizbot.com/images/2019-09/apple-iphone-11-pro-max_1568195590120.jpg"
       ],
       "categoryId": 1,
-      "id": 4
+      "id": 3
     }
   ]
 }

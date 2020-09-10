@@ -1,0 +1,34 @@
+<div class="card mt-1">
+  <div class="card-header">
+    <div class="card-header-title">Update Product</div>
+  </div>
+  <div class="card-content mt-1">
+    <form class="form" [formGroup]="form">
+      <div class="form-field-container">
+        <input type="text" class="form-control" placeholder="Title" formControlName="title">
+      </div>
+
+      <div class="form-field-container">
+        <input type="text" class="form-control" placeholder="Description" formControlName="description">
+      </div>
+
+      <div class="form-field-container">
+        <input type="text" class="form-control" placeholder="Image URL" formControlName="images">
+      </div>
+
+      <div class="form-field-container">
+        <select (change)="categoryId = $event.target.value" [value]="product.categoryId">
+          <option value="0" disabled selected>Select Category</option>
+          <option *ngFor="let category of categories$ | async" [value]="category.id">
+            {{ category.title }}
+          </option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <div class="card-action">
+    <button (click)="update()" class="btn-warn w-100" [disabled]="!form.valid || categoryId==''">
+      Update
+    </button>
+  </div>
+</div>

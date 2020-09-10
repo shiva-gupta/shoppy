@@ -10,12 +10,23 @@
   </div>
   <div class="card-action" *ngIf="isLoggedIn$ | async">
     <div class="c-x">
-      <button class="btn-min-fab-accent mr-1">
+      <button class="btn-min-fab-accent mr-1" (click)="handleModal()">
         <i class="fa fa-pencil"></i>
       </button>
       <button class="btn-min-fab-warn" (click)="delete()">
         <i class="fa fa-trash"></i>
       </button>
     </div>
+  </div>
+</div>
+
+<div class="overlay" [ngClass]="{'overlay-show': display}"></div>
+<div class="modal" [ngClass]="{'modal-show': display}">
+  <div class="modal-content">
+    <app-product-update-dialog [product]="product"></app-product-update-dialog>
+
+    <button class="btn-min-fab btn-modal-close" (click)="handleModal()">
+      <i class="fa fa-close"></i>
+    </button>
   </div>
 </div>

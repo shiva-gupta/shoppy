@@ -15,6 +15,7 @@ export class ProductItemComponent implements OnInit {
 
   @Input() product: Product;
   isLoggedIn$: Observable<boolean>;
+  display = false;
 
   constructor(
     private store: Store<AppState>
@@ -26,5 +27,9 @@ export class ProductItemComponent implements OnInit {
 
   delete(): void {
     this.store.dispatch(fromStore.ProductActions.deleteAction({id: this.product.id}));
+  }
+
+  handleModal(): void {
+    this.display = !this.display;
   }
 }
