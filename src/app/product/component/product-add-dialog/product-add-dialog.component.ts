@@ -17,9 +17,9 @@ export class ProductAddDialogComponent implements OnInit {
   categories$: Observable<Category[]>;
 
   form: FormGroup = new FormGroup({
-    title: new FormControl('Samsung Galaxy M21', [Validators.required]),
-    description: new FormControl('4 GB Ram, 64 GB Rom', [Validators.required]),
-    images: new FormControl('https://static.toiimg.com/thumb/msid-71259370,width-1200,resizemode-4/71259370.jpg', [Validators.required])
+    title: new FormControl('Apple iPhone 11 Pro', [Validators.required]),
+    description: new FormControl('4 GB Ram, 512 GB Rom', [Validators.required]),
+    images: new FormControl('https://www.gizbot.com/images/2019-09/apple-iphone-11-pro-max_1568195590120.jpg', [Validators.required])
   });
   categoryId = '';
 
