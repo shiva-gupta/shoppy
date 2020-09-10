@@ -31,6 +31,22 @@ export class ProductEffect {
       );
   });
 
+  delete$ = createEffect(() => {
+    let id = 0;
+    return this.actions$
+      .pipe(
+        ofType(ProductActions.deleteAction),
+        concatMap(action => {
+          id = action.id;
+          return this.productService.deleteById(action.id);
+        }),
+        map(() => {
+          return ProductActions.deleteSuccessAction({id});
+        }),
+        catchError(error => of(ProductActions.deleteFailAction({error})))
+      );
+  });
+
   constructor(
     private actions$: Actions,
     private productService: ProductService

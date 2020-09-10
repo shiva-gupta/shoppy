@@ -4,6 +4,7 @@ import { Product } from '../../store/model/product';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import * as fromAuth from '../../../auth/store';
+import * as fromStore from '../../store';
 
 @Component({
   selector: 'app-product-item',
@@ -23,4 +24,7 @@ export class ProductItemComponent implements OnInit {
     this.isLoggedIn$ = this.store.select(fromAuth.selectors.isLoggedIn);
   }
 
+  delete(): void {
+    this.store.dispatch(fromStore.ProductActions.deleteAction({id: this.product.id}));
+  }
 }

@@ -11,7 +11,7 @@ import * as fromAuth from '../../../auth/store';
 })
 export class ProductAddComponent implements OnInit {
 
-  display = true;
+  display = false;
   isLoggedIn$: Observable<boolean>;
 
   constructor(

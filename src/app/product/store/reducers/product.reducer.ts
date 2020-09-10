@@ -19,7 +19,6 @@ export const productReducers = createReducer(
       return {...state, loading: true};
     }
   ),
-
   on(
     ProductActions.loadAllSuccessAction,
     (state, action) => productAdapter.setAll(
@@ -27,7 +26,6 @@ export const productReducers = createReducer(
       {...state, loading: false, loaded: true}
     )
   ),
-
   on(
     ProductActions.loadAllFailAction,
     (state, action) => {
@@ -39,7 +37,6 @@ export const productReducers = createReducer(
     ProductActions.saveAction,
     (state, action) => state
   ),
-
   on(
     ProductActions.saveSuccessAction,
     (state, action) => productAdapter.addOne(
@@ -47,9 +44,24 @@ export const productReducers = createReducer(
       {...state}
     )
   ),
-
   on(
     ProductActions.saveFailAction,
     (state, action) => state
   ),
+
+  on(
+    ProductActions.deleteAction,
+    (state, action) => state
+  ),
+  on(
+    ProductActions.deleteSuccessAction,
+    (state, action) => productAdapter.removeOne(
+      action.id,
+      {...state}
+    )
+  ),
+  on(
+    ProductActions.deleteFailAction,
+    (state, action) => state
+  )
 );

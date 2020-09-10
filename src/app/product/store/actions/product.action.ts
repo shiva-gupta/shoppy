@@ -10,6 +10,10 @@ export enum ProductActionTypes {
   SAVE = '[Product] Save',
   SAVE_SUCCESS = '[Product] Save Success',
   SAVE_FAIL = '[Product] Save Fail',
+
+  DELETE = '[Product] Delete',
+  DELETE_SUCCESS = '[Product] Delete Success',
+  DELETE_FAIL = '[Product] Delete Fail',
 }
 
 export const loadAllAction = createAction(
@@ -38,5 +42,20 @@ export const saveSuccessAction = createAction(
 
 export const saveFailAction = createAction(
   ProductActionTypes.SAVE_FAIL,
+  props<{error: HttpErrorResponse}>()
+);
+
+export const deleteAction = createAction(
+  ProductActionTypes.DELETE,
+  props<{id: number}>()
+);
+
+export const deleteSuccessAction = createAction(
+  ProductActionTypes.DELETE_SUCCESS,
+  props<{id: number}>()
+);
+
+export const deleteFailAction = createAction(
+  ProductActionTypes.DELETE_FAIL,
   props<{error: HttpErrorResponse}>()
 );

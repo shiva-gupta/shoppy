@@ -22,7 +22,7 @@ export class ProductService {
 
   findById(id: number): Observable<Product> {
     return this.http.get<Product>(
-      `${this.env.apiUrl}/product/${id}`
+      `${this.env.apiUrl}/products/${id}`
     );
   }
 
@@ -35,6 +35,12 @@ export class ProductService {
         images: product.images,
         categoryId: product.categoryId
       }
+    );
+  }
+
+  deleteById(id: number): Observable<any> {
+    return this.http.delete<any>(
+      `${this.env.apiUrl}/products/${id}`
     );
   }
 }
