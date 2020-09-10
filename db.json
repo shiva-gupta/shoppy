@@ -9,15 +9,15 @@
   ],
   "category": [
     {
-      "category": "Mobile",
+      "title": "Mobile",
       "id": 1
     },
     {
-      "category": "Laptop",
+      "title": "Laptop",
       "id": 2
     },
     {
-      "category": "Mobile Accessories",
+      "title": "Mobile Accessories",
       "id": 3
     }
   ],
@@ -41,6 +41,24 @@
         "id": 1
       },
       "id": 2
+    },
+    {
+      "title": "Samsung Galaxy M21",
+      "description": "4 GB Ram, 64 GB Rom",
+      "images": [
+        "https://static.toiimg.com/thumb/msid-71259370,width-1200,resizemode-4/71259370.jpg"
+      ],
+      "categoryId": 1,
+      "id": 3
+    },
+    {
+      "title": "Samsung Galaxy M21",
+      "description": "4 GB Ram, 64 GB Rom",
+      "images": [
+        "https://static.toiimg.com/thumb/msid-71259370,width-1200,resizemode-4/71259370.jpg"
+      ],
+      "categoryId": 1,
+      "id": 4
     }
   ]
 }

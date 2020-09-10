@@ -1,3 +1,5 @@
+import { CategoryEffect } from './store/effects/category.effect';
+import { categoryReducers } from './store/reducers/category.reducer';
 import { Routes } from '@angular/router';
 import { ProductEffect } from './store/effects/product.effect';
 import { EffectsModule } from '@ngrx/effects';
@@ -26,7 +28,8 @@ export const router: Routes = [
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forFeature('products', productReducers),
-    EffectsModule.forFeature([ProductEffect])
+    StoreModule.forFeature('categories', categoryReducers),
+    EffectsModule.forFeature([ProductEffect, CategoryEffect])
   ]
 })
 export class ProductModule {

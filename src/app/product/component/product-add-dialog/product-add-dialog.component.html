@@ -19,8 +19,9 @@
       <div class="form-field-container">
         <select (change)="categoryId = $event.target.value">
           <option value="0" disabled selected>Select Category</option>
-          <option value="1">Mobile</option>
-          <option value="2">Laptop</option>
+          <option *ngFor="let category of categories$ | async" [value]="category.id">
+            {{ category.title }}
+          </option>
         </select>
       </div>
     </form>

@@ -1,5 +1,11 @@
+import { Category } from './../../store/model/category';
+import { CategoryState } from './../../store/reducers/index';
+import { Store } from '@ngrx/store';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import * as fromStore from '../../store';
+import { Product } from '../../store/model/product';
 
 @Component({
   selector: 'app-product-add-dialog',
@@ -8,20 +14,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductAddDialogComponent implements OnInit {
 
+  categories$: Observable<Category[]>;
+
   form: FormGroup = new FormGroup({
-    title: new FormControl('', [Validators.required]),
-    description: new FormControl('', [Validators.required]),
-    images: new FormControl('', [Validators.required])
+    title: new FormControl('Samsung Galaxy M21', [Validators.required]),
+    description: new FormControl('4 GB Ram, 64 GB Rom', [Validators.required]),
+    images: new FormControl('https://static.toiimg.com/thumb/msid-71259370,width-1200,resizemode-4/71259370.jpg', [Validators.required])
   });
   categoryId = '';
 
-  constructor() { }
+  constructor(
+    private store: Store<CategoryState>
+  ) { }
 
   ngOnInit(): void {
+    this.store.dispatch(fromStore.CategoryActions.loadAllAction());
+
+    this.categories$ = this.store.select(fromStore.categorySelectors.getAllCategories);
   }
 
   add(): void {
+    const product: Product = {
+      title: this.form.value.title,
+      description: this.form.value.description,
+      images: [this.form.value.images],
+      categoryId: Number(this.categoryId)
+    };
 
+    this.store.dispatch(fromStore.ProductActions.saveAction({product}));
   }
 
 }

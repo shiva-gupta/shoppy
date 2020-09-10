@@ -33,5 +33,23 @@ export const productReducers = createReducer(
     (state, action) => {
       return {...state, loaded: false, loading: false};
     }
-  )
+  ),
+
+  on(
+    ProductActions.saveAction,
+    (state, action) => state
+  ),
+
+  on(
+    ProductActions.saveSuccessAction,
+    (state, action) => productAdapter.addOne(
+      action.product,
+      {...state}
+    )
+  ),
+
+  on(
+    ProductActions.saveFailAction,
+    (state, action) => state
+  ),
 );

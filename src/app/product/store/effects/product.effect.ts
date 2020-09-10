@@ -1,4 +1,4 @@
-import { ProductActionTypes } from './../actions/product.action';
+import { ProductActionTypes, saveFailAction } from './../actions/product.action';
 import { ProductService } from './../../service/product.service';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { concatMap, map, catchError } from 'rxjs/operators';
@@ -18,6 +18,16 @@ export class ProductEffect {
           return ProductActions.loadAllSuccessAction({products});
         }),
         catchError(error => of(ProductActions.loadAllFailAction({error})))
+      );
+  });
+
+  save$ = createEffect(() => {
+    return this.actions$
+      .pipe(
+        ofType(ProductActions.saveAction),
+        concatMap(action => this.productService.save(action.product)),
+        map(product => ProductActions.saveSuccessAction({product})),
+        catchError(error => of(ProductActions.saveFailAction({error})))
       );
   });
 

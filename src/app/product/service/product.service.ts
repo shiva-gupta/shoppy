@@ -25,4 +25,16 @@ export class ProductService {
       `${this.env.apiUrl}/product/${id}`
     );
   }
+
+  save(product: Product): Observable<Product> {
+    return this.http.post<Product>(
+      `${this.env.apiUrl}/products`,
+      {
+        title: product.title,
+        description: product.description,
+        images: product.images,
+        categoryId: product.categoryId
+      }
+    );
+  }
 }
