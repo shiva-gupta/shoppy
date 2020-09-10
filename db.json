@@ -49,13 +49,36 @@
       "id": 2
     },
     {
+      "id": 3,
+      "title": "Samsung Galaxy M21",
+      "description": "6 GB Ram, 128 GB Rom",
+      "images": [
+        [
+          [
+            [
+              [
+                [
+                  "https://static.toiimg.com/thumb/msid-71259370,width-1200,resizemode-4/71259370.jpg"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      "categoryId": 1
+    },
+    {
+      "id": 4,
       "title": "Apple iPhone 11 Pro",
       "description": "4 GB Ram, 512 GB Rom",
       "images": [
-        "https://www.gizbot.com/images/2019-09/apple-iphone-11-pro-max_1568195590120.jpg"
+        [
+          [
+            "https://www.gizbot.com/images/2019-09/apple-iphone-11-pro-max_1568195590120.jpg"
+          ]
+        ]
       ],
-      "categoryId": 1,
-      "id": 3
+      "categoryId": 1
     }
   ]
 }

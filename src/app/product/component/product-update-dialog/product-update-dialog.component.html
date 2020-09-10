@@ -17,9 +17,10 @@
       </div>
 
       <div class="form-field-container">
-        <select (change)="categoryId = $event.target.value" [value]="product.categoryId">
+        <select (change)="categoryId = $event.target.value">
           <option value="0" disabled selected>Select Category</option>
-          <option *ngFor="let category of categories$ | async" [value]="category.id">
+          <option *ngFor="let category of categories$ | async" [value]="category.id"
+            [selected]="category.id === product.categoryId">
             {{ category.title }}
           </option>
         </select>
