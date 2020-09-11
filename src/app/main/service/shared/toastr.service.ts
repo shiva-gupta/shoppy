@@ -12,7 +12,7 @@ export class ToastrService {
 
   success(message: string): void {
     // this.toastComponent.success(message);
-    // alert(message);
+    alert(message);
   }
 
   error(message: string): void {

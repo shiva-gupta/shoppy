@@ -26,7 +26,9 @@ export class ProductItemComponent implements OnInit {
   }
 
   delete(): void {
-    this.store.dispatch(fromStore.ProductActions.deleteAction({id: this.product.id}));
+    if (confirm('Sure want to delete ?')) {
+      this.store.dispatch(fromStore.ProductActions.deleteAction({id: this.product.id}));
+    }
   }
 
   handleModal(): void {

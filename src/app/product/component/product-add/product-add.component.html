@@ -5,7 +5,43 @@
 <div class="overlay" [ngClass]="{'overlay-show': display}"></div>
 <div class="modal" [ngClass]="{'modal-show': display}">
   <div class="modal-content">
-    <app-product-add-dialog></app-product-add-dialog>
+    <!-- <app-product-add-dialog></app-product-add-dialog> -->
+    <!-- dialog -->
+    <div class="card mt-1">
+      <div class="card-header">
+        <div class="card-header-title">New Product</div>
+      </div>
+      <div class="card-content mt-1">
+        <form class="form" [formGroup]="form">
+          <div class="form-field-container">
+            <input type="text" class="form-control" placeholder="Title" formControlName="title">
+          </div>
+
+          <div class="form-field-container">
+            <input type="text" class="form-control" placeholder="Description" formControlName="description">
+          </div>
+
+          <div class="form-field-container">
+            <input type="text" class="form-control" placeholder="Image URL" formControlName="images">
+          </div>
+
+          <div class="form-field-container">
+            <select (change)="categoryId = $event.target.value">
+              <option value="0" disabled selected>Select Category</option>
+              <option *ngFor="let category of categories$ | async" [value]="category.id">
+                {{ category.title }}
+              </option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="card-action">
+        <button (click)="add()" class="btn-warn w-100" [disabled]="!form.valid || categoryId==''">
+          Add
+        </button>
+      </div>
+    </div>
+    <!-- dialog -->
 
     <button class="btn-min-fab btn-modal-close" (click)="handleModal()">
       <i class="fa fa-close"></i>

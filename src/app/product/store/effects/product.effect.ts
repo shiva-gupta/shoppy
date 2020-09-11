@@ -1,3 +1,4 @@
+import { ToastrService } from './../../../main/service/shared/toastr.service';
 import { ProductActionTypes, saveFailAction } from './../actions/product.action';
 import { ProductService } from './../../service/product.service';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
@@ -26,7 +27,10 @@ export class ProductEffect {
       .pipe(
         ofType(ProductActions.saveAction),
         concatMap(action => this.productService.save(action.product)),
-        map(product => ProductActions.saveSuccessAction({product})),
+        map(product => {
+          this.toastr.success('Product Added');
+          return ProductActions.saveSuccessAction({product});
+        }),
         catchError(error => of(ProductActions.saveFailAction({error})))
       );
   });
@@ -36,7 +40,10 @@ export class ProductEffect {
       .pipe(
         ofType(ProductActions.updateAction),
         concatMap(action => this.productService.update(action.product)),
-        map(product => ProductActions.updateSuccessAction({product})),
+        map(product => {
+          this.toastr.success('Product Updated');
+          return ProductActions.updateSuccessAction({product});
+        }),
         catchError(error => of(ProductActions.updateFailAction({error})))
       );
   });
@@ -59,6 +66,7 @@ export class ProductEffect {
 
   constructor(
     private actions$: Actions,
-    private productService: ProductService
+    private productService: ProductService,
+    private toastr: ToastrService
   ) {}
 }
